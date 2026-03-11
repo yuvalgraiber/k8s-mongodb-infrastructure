@@ -34,10 +34,14 @@ livenessProbe:
 readinessProbe:
   enabled: false
 
-service:
-  type: NodePort
-  nodePorts:
-    mongodb: 30017
+externalAccess:
+  enabled: true
+  service:
+    type: NodePort
+    nodePorts:
+      - 30017  
+      - 30018  
+      - 30019  
 
 mongodb:
   extraFlags:
