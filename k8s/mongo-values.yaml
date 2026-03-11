@@ -1,0 +1,44 @@
+architecture: replicaset
+replicaCount: 3
+
+replicaSet:
+  enabled: true
+  name: rs0
+  replicas: 3 
+
+arbiter:
+  enabled: false
+
+podSecurityContext:
+  enabled: true
+  fsGroup: 1001
+containerSecurityContext:
+  enabled: true
+  runAsUser: 1001
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1Gi
+  requests:
+    cpu: 100m
+    memory: 512Mi
+
+persistence:
+  enabled: true
+  storageClass: "nfs-client"
+  size: 8Gi
+
+livenessProbe:
+  enabled: false
+readinessProbe:
+  enabled: false
+
+service:
+  type: NodePort
+  nodePorts:
+    mongodb: 30017
+
+mongodb:
+  extraFlags:
+    - "--wiredTigerCacheSizeGB=0.25"

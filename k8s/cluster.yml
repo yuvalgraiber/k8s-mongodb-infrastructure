@@ -1,0 +1,18 @@
+ignore_docker_version: true
+kubernetes_version: v1.28.7-rancher1-1
+network:
+  plugin: canal
+
+nodes:
+  - address: 10.87.169.187
+    user: ubuntu
+    role: [controlplane, worker, etcd]
+    ssh_key_path: ~/.ssh/id_rsa
+  - address: 10.87.169.35
+    user: ubuntu
+    role: [controlplane, worker, etcd]
+    ssh_key_path: ~/.ssh/id_rsa
+  - address: 10.87.169.179
+    user: ubuntu
+    role: [controlplane, worker, etcd]
+    ssh_key_path: ~/.ssh/id_rsa
