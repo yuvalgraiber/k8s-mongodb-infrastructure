@@ -1,6 +1,8 @@
 # Kubernetes sensitive files
 **/kube_config_cluster.yml
 **/cluster.rkestate
+**/secrets.yaml
+rke/rke
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

@@ -6,6 +6,10 @@ replicaSet:
   name: rs0
   replicas: 3 
 
+auth:
+  enabled: true
+  existingSecret: "mongodb-passwords"
+
 arbiter:
   enabled: false
 
